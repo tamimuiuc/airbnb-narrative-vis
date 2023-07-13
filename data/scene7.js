@@ -1,5 +1,5 @@
 // Load data
-d3.csv('https://tamimuiuc.github.io/airbnb-narrative-vis/data/USA-Airbnb-dataset.csv')
+d3.csv('https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/USA-Airbnb-dataset.csv')
   .then((data) => {
     // Parse price as a number
     data.forEach(d => d.price = +d.price);

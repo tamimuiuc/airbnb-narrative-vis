@@ -3,7 +3,7 @@ d3.selectAll('.scene').style('display', 'none');
 // Show this scene
 d3.select('#scene4').style('display', 'block');
 
-d3.csv('https://tamimuiuc.github.io/airbnb-narrative-vis/data/USA-Airbnb-dataset.csv')
+d3.csv('https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/USA-Airbnb-dataset.csv')
   .then(data => {
     // Parsing string values to numeric
     data.forEach(d => {

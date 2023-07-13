@@ -4,7 +4,7 @@ d3.selectAll('.scene').style('display', 'none');
 // Show this scene
 d3.select('#scene5').style('display', 'block');
 
-d3.csv('https://tamimuiuc.github.io/airbnb-narrative-vis/data/USA-Airbnb-dataset.csv')
+d3.csv('https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/USA-Airbnb-dataset.csv')
     .then(data => {
         // Group data by room type and count the number of listings for each type
         const roomTypeCounts = Array.from(d3.group(data, d => d.room_type), ([key, value]) => ({

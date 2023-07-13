@@ -15,7 +15,7 @@ let svg = d3.select('#scene3-graph')
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-d3.csv("https://tamimuiuc.github.io/airbnb-narrative-vis/data/USA-Airbnb-dataset.csv")
+d3.csv("https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/USA-Airbnb-dataset.csv")
     .then(function (data) {
         // Aggregate data by state and calculate average price
         var data = d3.rollup(data, v => d3.mean(v, d => d.price), d => d.state);

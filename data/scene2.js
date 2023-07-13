@@ -4,14 +4,14 @@ d3.selectAll(".scene").style("display", "none");
 // Show this scene
 d3.select("#scene2").style("display", "block");
 
-d3.csv("https://tamimuiuc.github.io/airbnb-narrative-vis/data/USA-Airbnb-dataset.csv")
+d3.csv("https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/USA-Airbnb-dataset.csv")
     .then(function(data) {
         // Group the data by state and get the count of listings for each state
         var dataByStateArray = Array.from(d3.group(data, d => d.state), ([key, value]) => ({key, value: value.length}));
         var dataByState = Object.fromEntries(dataByStateArray.map(item => [item.key, item.value]));
 
         // Load the map of the United States
-        d3.json("https://tamimuiuc.github.io/airbnb-narrative-vis/data/state.json").then(function(us) {
+        d3.json("https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/data/state.json").then(function(us) {
             // Define color scale for map coloring
             var color = d3.scaleLinear()
                 .domain([0, d3.max(dataByStateArray, d => d.value)])
