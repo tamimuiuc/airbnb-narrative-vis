@@ -9,7 +9,6 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <script src="https://d3js.org/topojson.v3.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="scene1.js" defer></script>
     <script src="scene2.js" defer></script>
     <script src="scene3.js" defer></script>
@@ -32,7 +31,7 @@
             width: 100%;
         }
         #content {
-            margin-top: 60px; /* Adjust as needed */
+            margin-top: 60px; /* This will be overridden by JS */
         }
     </style>
 </head>
@@ -86,50 +85,46 @@
         const priceReviewsButton = document.getElementById("priceReviewsButton");
         const roomTypeButton = document.getElementById("roomTypeButton");
         const annualPerformanceButton = document.getElementById("annualPerformanceButton");
-        const priceDistributionButton = document.getElementById("priceDistributionButton"); // Get reference to the new button
+        const priceDistributionButton = document.getElementById("priceDistributionButton");
 
-        // Get references to the scene divs
-        const scene1Div = document.getElementById("scene1");
-        const scene2Div = document.getElementById("scene2");
-        const scene3Div = document.getElementById("scene3");
-        const scene4Div = document.getElementById("scene4");
-        const scene5Div = document.getElementById("scene5");
-        const scene6Div = document.getElementById("scene6");
-        const scene7Div = document.getElementById("scene7"); // Get reference to the new scene div
-
-        // Add event listeners to the buttons
-        introButton.addEventListener("click", () => {
-            scrollToScene(scene1Div);
+        // Add click event listeners to buttons
+        introButton.addEventListener("click", function() {
+            scrollToScene("scene1");
+        });
+        mapButton.addEventListener("click", function() {
+            scrollToScene("scene2");
+        });
+        topStatesButton.addEventListener("click", function() {
+            scrollToScene("scene3");
+        });
+        priceReviewsButton.addEventListener("click", function() {
+            scrollToScene("scene4");
+        });
+        roomTypeButton.addEventListener("click", function() {
+            scrollToScene("scene5");
+        });
+        annualPerformanceButton.addEventListener("click", function() {
+            scrollToScene("scene6");
+        });
+        priceDistributionButton.addEventListener("click", function() {
+            scrollToScene("scene7");
         });
 
-        mapButton.addEventListener("click", () => {
-            scrollToScene(scene2Div);
-        });
-
-        topStatesButton.addEventListener("click", () => {
-            scrollToScene(scene3Div);
-        });
-
-        priceReviewsButton.addEventListener("click", () => {
-            scrollToScene(scene4Div);
-        });
-
-        roomTypeButton.addEventListener("click", () => {
-            scrollToScene(scene5Div);
-        });
-
-        annualPerformanceButton.addEventListener("click", () => {
-            scrollToScene(scene6Div);
-        });
-
-        priceDistributionButton.addEventListener("click", () => { // Added new event listener
-            scrollToScene(scene7Div);
-        });
-
-        // Function to scroll to the selected scene
-        function scrollToScene(sceneDiv) {
-            sceneDiv.scrollIntoView({ behavior: "smooth" });
+        // Function to scroll to a scene
+        function scrollToScene(sceneId) {
+            const sceneElement = document.getElementById(sceneId);
+            sceneElement.scrollIntoView({behavior: "smooth"});
         }
+
+        // Function to adjust margin of content div
+        window.addEventListener('resize', adjustContentMargin);
+
+        function adjustContentMargin() {
+            const navHeight = document.getElementById('navigation').offsetHeight;
+            document.getElementById('content').style.marginTop = `${navHeight}px`;
+        }
+
+        adjustContentMargin(); // Call the function initially to set the correct margin
     </script>
 </body>
 </html>

@@ -40,7 +40,7 @@ d3.csv('https://raw.githubusercontent.com/tamimuiuc/airbnb-narrative-vis/main/da
         .attr("id", "title")
         .style("text-align", "center")
         .style("flex-grow", "1")
-        .style("margin-right", "00px"); // Push the title to the left
+        .style("margin-right", "200px"); // Push the title to the left
 
     // Append the svg object to the body of the page
     var svg = d3.select("#scene7-graph")

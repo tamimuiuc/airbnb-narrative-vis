@@ -89,18 +89,27 @@ button:hover {
   margin-bottom: 40px;
 }
 
-@media (min-width: 600px) {
-  #scene2,
-  #scene3,
-  #scene4,
-  #scene5,
-  #scene6,
-  #scene7 {
-    max-width: 800px; 
-    margin-left: auto;
-    margin-right: auto;
-  }
+#navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f8f8;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px; /* You can adjust this as needed */
 }
+
+@media (max-width: 600px) {
+#navigation {
+  flex-direction: column; /* Stack the buttons vertically */
+  height: auto; /* Allow the height to adjust to the content */
+}
+
+#content {
+  margin-top: 200px; /* Adjust this value as needed to prevent overlap with the navigation */
+}
+}
+
 
 
 
