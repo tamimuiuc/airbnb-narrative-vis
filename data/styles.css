@@ -90,35 +90,5 @@ button:hover {
   margin-bottom: 40px;
 }
 
-@media (max-width: 600px) {
-  /* Styles for screen widths 600px or less */
-
-  body {
-    padding: 10px;
-  }
-
-  h1, h2 {
-    font-size: 18px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 5px 10px;
-    margin: 2px 1px;
-  }
-
-  #scene1, #scene2, #scene3, #scene4, #scene5, #scene6, #scene7 {
-    max-width: 100%;
-    margin-left: 0;
-  }
-}
-
-#scene2-graph p, #scene3-graph p, #scene4-graph p, #scene5-graph p, #scene6-graph p, #scene7-graph p {
-  padding-top: 20px;
-}
 
 
