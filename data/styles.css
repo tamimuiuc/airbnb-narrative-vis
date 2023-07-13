@@ -85,10 +85,23 @@ button:hover {
 #scene6,
 #scene7 {
   margin: 0 auto;
-  max-width: 800px; /* Adjust the max-width as needed */
-  margin-left: 50px; /* Adjust the margin-left value */
+  max-width: 90%; /* Adjust the max-width as needed */
   margin-bottom: 40px;
 }
+
+@media (min-width: 600px) {
+  #scene2,
+  #scene3,
+  #scene4,
+  #scene5,
+  #scene6,
+  #scene7 {
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 
 
