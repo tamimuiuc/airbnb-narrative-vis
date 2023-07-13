@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #444;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #444;
+  text-align: center;
+  padding-top: 20px;
+}
+
+p {
+  padding-bottom: 20px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 2px 3px rgba(0, 0, 0, 0.22);
+}
+
+#tooltip {
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* New styles */
+
+.scene-svg {
+  margin: 0 auto;
+  display: block;
+}
+
+.chart-bar {
+  transition: height 0.3s ease-in-out;
+}
+
+.chart-bar:hover {
+  opacity: 0.8;
+}
+
+.chart-legend {
+  font-size: 14px;
+}
+
+.chart-title {
+  font-size: 20px;
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+#scene1 {
+  text-align: center;
+  color: #444;
+}
+
+#scene2,
+#scene3,
+#scene4,
+#scene5,
+#scene6,
+#scene7 {
+  margin: 0 auto;
+  max-width: 90%; /* Adjust the max-width as needed */
+  margin-bottom: 40px;
+}
+
+#navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f8f8;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px; /* You can adjust this as needed */
+}
+
+@media (max-width: 600px) {
+#navigation {
+  flex-direction: column; /* Stack the buttons vertically */
+  height: auto; /* Allow the height to adjust to the content */
+}
+
+#content {
+  margin-top: 200px; /* Adjust this value as needed to prevent overlap with the navigation */
+}
+}
+
+
+
+
+

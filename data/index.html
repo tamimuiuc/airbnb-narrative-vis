@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Airbnb Narrative Visualization</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="scene1.js" defer></script>
+    <script src="scene2.js" defer></script>
+    <script src="scene3.js" defer></script>
+    <script src="scene4.js" defer></script>
+    <script src="scene5.js" defer></script>
+    <script src="scene6.js" defer></script>
+    <script src="scene7.js" defer></script> <!-- Added new scene7.js -->
+    <style>
+        html, body {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+        #navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f8f8f8;
+            padding: 10px;
+            width: 100%;
+        }
+        #content {
+            margin-top: 60px; /* This will be overridden by JS */
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <button id="introButton">Introduction</button>
+        <button id="mapButton">Geo Distribution of Listings</button>
+        <button id="topStatesButton">States Average Price of Listings</button>
+        <button id="priceReviewsButton">Price vs Reviews</button>
+        <button id="roomTypeButton">Breakdown by Room Type</button>
+        <button id="annualPerformanceButton">Annual Performance Analysis</button>
+        <button id="priceDistributionButton">Price Distribution</button> <!-- Added new button -->
+    </div>
+    <div id="content">
+        <div id="scene1">
+            <h1>Airbnb Listing Analysis and Trends</h1>
+            <p>Welcome to our Airbnb data analysis. In this interactive exploration, you'll learn about Airbnb listings in the United States and uncover interesting patterns and insights. Use the navigation buttons placed on top of the page to move between different scenes.</p>
+        </div>
+        <div id="scene2">
+            <div id="scene2-graph"></div>
+             <p>Explore how Airbnb listings are distributed geographically across the United States. Notice the high concentration of hosts in states like California and New York.</p>
+        </div>
+        <div id="scene3">
+            <div id="scene3-graph"></div>
+            <p>Discover how the average price of Airbnb listings varies by state. You might find it interesting that states like Connecticut, Hawaii, and California have high average prices.</p>
+        </div>
+        <div id="scene4">
+            <div id="scene4-graph"></div>
+            <p>Find out how listing prices relate to the number of reviews they receive. This could give insights into how price affects a listing's popularity among guests.</p>
+        </div>
+        <div id="scene5">
+            <div id="scene5-graph"></div>
+            <p>Learn about the distribution of listings by room types. Notably, the majority of listings are of "entire home/apt" type, followed by "private room".</p>
+        </div>
+        <div id="scene6">
+            <div id="scene6-graph"></div>
+            <p>Watch the trend of listings, revenue, and hosts over time. It's clear that all these factors have been steadily increasing, marking the success of Airbnb.</p>
+        </div>
+        <div id="scene7">
+            <div id="scene7-graph"></div>
+            <p>Get a sense of how listing prices are distributed. This can give you an idea of the range of prices guests can expect when booking on Airbnb.</p>
+        </div> <!-- Added new div for scene 7 -->
+    </div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <script>
+        // Get references to the buttons
+        const introButton = document.getElementById("introButton");
+        const mapButton = document.getElementById("mapButton");
+        const topStatesButton = document.getElementById("topStatesButton");
+        const priceReviewsButton = document.getElementById("priceReviewsButton");
+        const roomTypeButton = document.getElementById("roomTypeButton");
+        const annualPerformanceButton = document.getElementById("annualPerformanceButton");
+        const priceDistributionButton = document.getElementById("priceDistributionButton");
+
+        // Add click event listeners to buttons
+        introButton.addEventListener("click", function() {
+            scrollToScene("scene1");
+        });
+        mapButton.addEventListener("click", function() {
+            scrollToScene("scene2");
+        });
+        topStatesButton.addEventListener("click", function() {
+            scrollToScene("scene3");
+        });
+        priceReviewsButton.addEventListener("click", function() {
+            scrollToScene("scene4");
+        });
+        roomTypeButton.addEventListener("click", function() {
+            scrollToScene("scene5");
+        });
+        annualPerformanceButton.addEventListener("click", function() {
+            scrollToScene("scene6");
+        });
+        priceDistributionButton.addEventListener("click", function() {
+            scrollToScene("scene7");
+        });
+
+        // Function to scroll to a scene
+        function scrollToScene(sceneId) {
+            const sceneElement = document.getElementById(sceneId);
+            sceneElement.scrollIntoView({behavior: "smooth"});
+        }
+
+        // Function to adjust margin of content div
+        window.addEventListener('resize', adjustContentMargin);
+
+        function adjustContentMargin() {
+            const navHeight = document.getElementById('navigation').offsetHeight;
+            document.getElementById('content').style.marginTop = `${navHeight}px`;
+        }
+
+        adjustContentMargin(); // Call the function initially to set the correct margin
+    </script>
+</body>
+</html>
